@@ -17,6 +17,11 @@ const card = [
         title: "Адвокатура штата",
         background: "comey.jpeg",
     },
+    {
+        id: "3",
+        title: "Ассамблея",
+        background: "assebly.jpeg",
+    },
 ];
 ---
 
@@ -38,20 +43,21 @@ const card = [
 <style lang="scss">
     .content-container {
         display: grid;
-        grid-template-columns: repeat(3, 2fr);
+        grid-template-columns: repeat(2, 500px);
+        grid-template-rows: repeat(2, 270px);
+        justify-content: center;
     }
 
     .card-content {
         margin: 0 auto;
-        color: rgba(20, 17, 17, 0.75);
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         width: 450px;
         height: 250px;
         transition: ease 0.5s;
-        box-shadow: 0px 10px 30px 5px rgba(66, 65, 65, 0.5);
-        filter: grayscale(0.7);
+        box-shadow: 0 0 150px 10px rgba(255, 0, 0, 0.5);
+        filter: grayscale(0.9);
         cursor: pointer;
 
         & img {
@@ -67,7 +73,7 @@ const card = [
             height: 100%;
 
             p {
-                background: rgba(88, 87, 87, 0.5);
+                background: rgba(0, 0, 0, 0.5);
                 padding: 5px 10px;
                 font-size: 21px;
                 font-weight: 300;
@@ -78,8 +84,6 @@ const card = [
         &:hover {
             filter: none;
             transition: ease 0.5s;
-            color: white;
-            font-weight: 300;
         }
     }
 </style>
