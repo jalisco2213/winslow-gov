@@ -1,81 +1,85 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+
+const card = [
+    {
+        id: "0",
+        title: "Государственная прокуратура",
+        background: "/public/prosecutor.jpeg",
+    },
+    {
+        id: "1",
+        title: "Судебная система",
+        background: "/public/jud.jpeg",
+    },
+    {
+        id: "2",
+        title: "Адвокатура штата",
+        background: "/public/comey.jpeg",
+    },
+];
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout title="Government">
+    <div class="content-container">
+        {
+            card.map((item) => (
+                <div class="card-content" data-idx={item.id}>
+                    <div class="card-content-name">
+                        <img src={item.background} alt="" />
+                        <p>{item.title}</p>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
 </Layout>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+<style lang="scss">
+    .content-container {
+        display: grid;
+        grid-template-columns: repeat(3, 2fr);
+    }
+
+    .card-content {
+        margin: 0 auto;
+        color: rgba(20, 17, 17, 0.75);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 450px;
+        height: 250px;
+        transition: ease 0.5s;
+        box-shadow: 0px 10px 30px 5px rgba(66, 65, 65, 0.5);
+        filter: grayscale(0.7);
+        cursor: pointer;
+
+        & img {
+            position: absolute;
+            width: 450px;
+            height: 250px;
+        }
+
+        &-name {
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
+
+            p {
+                background: rgba(88, 87, 87, 0.5);
+                padding: 5px 10px;
+                font-size: 21px;
+                font-weight: 300;
+                z-index: 10;
+            }
+        }
+
+        &:hover {
+            filter: none;
+            transition: ease 0.5s;
+            color: white;
+            font-weight: 300;
+        }
+    }
 </style>
