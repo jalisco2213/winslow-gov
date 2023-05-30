@@ -1,5 +1,6 @@
 ---
 import "../assets/common.scss";
+import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
 
 export interface Props {
@@ -25,4 +26,7 @@ const { title } = Astro.props;
 	<body>
 		<slot />
 	</body>
+	<footer>
+		<Footer/>
+	</footer>
 </html>
