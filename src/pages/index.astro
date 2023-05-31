@@ -6,21 +6,25 @@ const card = [
         id: "0",
         title: "Государственная прокуратура",
         background: "prosecutor.jpeg",
+        link: "https://gov-prosecutor.netlify.app/",
     },
     {
         id: "1",
         title: "Судебная система",
         background: "jud.jpeg",
+        link: "#",
     },
     {
         id: "2",
         title: "Адвокатура штата",
         background: "comey.jpeg",
+        link: "#",
     },
     {
         id: "3",
         title: "Ассамблея",
         background: "assebly.jpeg",
+        link: "#",
     },
 ];
 ---
@@ -57,13 +61,17 @@ const card = [
         height: 250px;
         transition: ease 0.3s;
         box-shadow: 0 20px 200px 10px rgba(255, 0, 0, 0.4);
-        filter: grayscale(0.9);
+        filter: grayscale(5);
         cursor: pointer;
 
-        & img {
+        img {
             position: absolute;
             width: 450px;
             height: 250px;
+
+            &:hover {
+                transition: ease 0.3s;
+            }
         }
 
         &-name {
@@ -73,10 +81,10 @@ const card = [
             height: 100%;
 
             p {
-                background: rgba(0, 0, 0, 0.5);
                 padding: 5px 10px;
                 font-size: 21px;
                 font-weight: 300;
+                background: rgba(0, 0, 0, 0.5);
                 z-index: 10;
             }
         }
