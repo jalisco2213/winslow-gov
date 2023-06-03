@@ -6,7 +6,7 @@ const card = [
         id: "0",
         title: "Государственная прокуратура",
         background: "prosecutor.jpeg",
-        link: "https://gov-prosecutor.netlify.app/",
+        link: "/procuracy",
     },
     {
         id: "1",
@@ -33,12 +33,12 @@ const card = [
     <div class="content-container">
         {
             card.map((item) => (
-                <div class="card-content" data-idx={item.id}>
+                <a class="card-content" href={item.link} data-idx={item.id}>
                     <div class="card-content-name">
                         <img src={item.background} alt="" />
                         <p>{item.title}</p>
                     </div>
-                </div>
+                </a>
             ))
         }
     </div>
@@ -59,7 +59,7 @@ const card = [
         background-size: cover;
         width: 450px;
         height: 250px;
-        transition: ease 0.3s;
+        transition: ease 0.2s;
         box-shadow: 0 20px 200px 10px rgba(255, 0, 0, 0.4);
         filter: grayscale(5);
         cursor: pointer;
@@ -68,10 +68,6 @@ const card = [
             position: absolute;
             width: 450px;
             height: 250px;
-
-            &:hover {
-                transition: ease 0.3s;
-            }
         }
 
         &-name {
@@ -91,7 +87,7 @@ const card = [
 
         &:hover {
             filter: none;
-            transition: ease 0.3s;
+            transition: ease 0.2s;
         }
     }
 </style>

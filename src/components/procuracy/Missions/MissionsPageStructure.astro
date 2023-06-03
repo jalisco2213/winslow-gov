@@ -1,0 +1,136 @@
+---
+import LineSVG from "../svg/LineSVG.astro";
+---
+
+<div class="structure-container">
+    <div class="structure-info">
+        <h2>Организационная структура</h2>
+        <LineSVG />
+        <div class="structure-card">
+            <img src="/procuracy/iera.png" alt="iera" />
+            <div class="structure-card_info">
+                <div class="field-item_info">
+                    <h3>Компоненты и агентства Прокуратуры</h3>
+                    <p>
+                        Прокуратура состоит из нескольких компонентов и
+                        агентств, занимающихся выполнением нашей миссии.
+                    </p>
+                </div>
+                <a href="/structure" class="scheme">
+                    <span>Посмотреть организационную схему</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style scoped lang="scss">
+        @use "/src/assets/style/procuracy/mixin" as mixins;
+
+
+    .structure-container {
+        margin-top: 6.25rem;
+        padding-bottom: 6.25rem;
+        background: #ecf1f7;
+    }
+
+    .structure-info {
+        @include mixins.flipdisp;
+    }
+
+    .structure-card {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0 auto;
+        background: white;
+        width: 60rem;
+        box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.5);
+
+        & img {
+            width: 23rem;
+            height: 21.875rem;
+        }
+    }
+
+    .scheme {
+        margin: 1.3rem 0;
+        width: 20rem;
+        height: 2.5rem;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #162e51;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+            background: #005ea2;
+        }
+
+        & span {
+            font-weight: 500;
+        }
+    }
+
+    .field-item_info {
+        width: 500px;
+
+        & h3 {
+            font-weight: 500;
+            margin-top: 0.6rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #07648d;
+            line-height: 1;
+        }
+
+        & p {
+            color: #666;
+            line-height: 1.3;
+            font-weight: 300;
+        }
+    }
+
+    @media (max-width: 965px) {
+        .structure-card {
+            width: auto;
+            margin: 0 40px;
+        }
+    }
+
+    @media (max-width: 850px) {
+        .structure-card {
+            display: block;
+            margin: 0 20px;
+
+            & img {
+                display: flex;
+                margin: 0 auto;
+            }
+        }
+
+        .field-item_info {
+            margin: 0 auto;
+            text-align: center;
+            width: auto;
+        }
+
+        .scheme {
+            margin: 20px auto;
+        }
+    }
+
+    @media (max-width: 460px) {
+        .structure-card {
+            height: 500px;
+
+            & img {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    }
+</style>
