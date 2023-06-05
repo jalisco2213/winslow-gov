@@ -1,0 +1,36 @@
+---
+import HeroTitle from "./Hero-Title.astro";
+---
+
+<div class="hero-container">
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="/court/background-home/supreme.jpeg" alt="" />
+            </div>
+            <div class="swiper-slide">
+                <img src="/court/background-home/supreme2.jpeg" alt="" />
+            </div>
+            <div class="swiper-slide">
+                <img
+                    src="/court/background-home/supreme3.png"
+                    alt=""
+                    style="width: 100%; height: 800px;"
+                />
+            </div>
+            <div class="swiper-slide">
+                <img src="/court/background-home/supreme3.jpeg" alt="" />
+            </div>
+        </div>
+    </div>
+    <HeroTitle />
+</div>
+
+<style lang="scss">
+    .swiper {
+        position: absolute;
+        width: 100%;
+        height: 700px;
+        z-index: -2;
+    }
+</style>
