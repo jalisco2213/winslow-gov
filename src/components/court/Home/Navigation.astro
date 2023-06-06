@@ -1,0 +1,136 @@
+---
+import Arrow from "./svg/Arrow.astro";
+const navigation = [
+    {
+        id: "1",
+        title: "Работа в суде",
+        link: "/court/jobs",
+    },
+    {
+        id: "2",
+        title: "Познакомьтесь с Главным судьёй Верховного суда",
+        link: "/court/jobs",
+    },
+];
+
+const navigat = [
+    {
+        id: "0",
+        tit: "Подать иск в Верховный суд",
+        sub: "первая инстанция, занимается рассмотрением гражданских исков и уголовных дел, а также решением трудовых споров. Ответчиками поискам в Окружном суде являются граждане, государственные служащие младшего и старшего составов.",
+        link: "/",
+    },
+    {
+        id: "1",
+        tit: "Подать иск в Окружной суд",
+        sub: " вторая инстанция, занимается рассмотрением исков в отношении руководства государственных организаций, делами имеющими особую важность, делами связанными с нарушением Конституции, снятием неприкосновенности, а также исками в отношении членов судейскойколлегии, занимается рассмотрением исковых апелляций, выдает консультативные заключения, выносит решения о пригодности Губернатора Штата к исполнению своих обязанностей.",
+        link: "/",
+    },
+];
+---
+
+<div class="navigation-container">
+    <h2>Навигационная панель</h2>
+    <details class="navigation-main">
+        <summary class="navigation-main_summ"> Подать иск в суд</summary>
+        {
+            navigat.map((item) => (
+                <>
+                    <details class="navigation-main_det">
+                        <summary class="navigation-main_det_summ">
+                            {item.tit}
+                        </summary>
+                        <p>{item.sub}</p>
+                        <a href={item.link}>Подать иск можно тут</a>
+                    </details>
+                </>
+            ))
+        }
+    </details>
+    {
+        navigation.map((item) => (
+            <div class="navigation-card" data-idx={item.id}>
+                <Arrow />
+                {item.title}
+            </div>
+        ))
+    }
+</div>
+
+<style lang="scss">
+    .navigation-main_summ::after {
+        content: url(./svg/arrow-badge-right-filled.svg);
+        margin: 0 0 0 -8px;
+        color: #fff;
+        float: left;
+        list-style: none;
+        list-style-type: none;
+    }
+
+    details[open] .navigation-main_summ::after {
+        content: url(./svg/arrow-badge-down-filled.svg);
+        list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+    summary {
+        display: block;
+    }
+
+    .navigation-main {
+        width: 600px;
+        color: #091d32;
+        margin: 0 auto;
+        border: 0.1px solid #091d32;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:hover {
+            background: #f6f6f6;
+        }
+
+        &_summ {
+            padding: 8px;
+            font-weight: 300;
+            color: #091d32;
+        }
+
+        &_det {
+            margin: 5px 0 10px 20px;
+
+            &_summ {
+                font-weight: 200;
+                padding-top: 5px;
+                text-transform: unset;
+                width: 300px;
+            }
+
+            p {
+                text-transform: lowercase;
+                font-weight: 200;
+                padding-top: 10px;
+                line-height: 1.2;
+            }
+        }
+    }
+
+    .navigation-card {
+        margin: 1px auto;
+        display: flex;
+        font-weight: 300;
+        align-items: center;
+        text-transform: uppercase;
+        width: 600px;
+        height: 40px;
+        background: #ffffff;
+        cursor: pointer;
+        border: 0.1px solid #091d32;
+        color: #091d32;
+
+        &:hover {
+            background: #eee;
+        }
+    }
+</style>
